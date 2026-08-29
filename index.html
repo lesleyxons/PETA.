@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interdisciplinary PETAs - Group 4</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, "Hellvetica", serif;
+            background: linear-gradient(135deg, #ffd1dc, #ffc0cb, #ffe4ec);
+            color: #222;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        
+        .container {
+            width: 95%;
+            max-width: 1500px;
+            min-height: 95vh;
+            margin: 15px auto;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            backdrop-filter: blur(5px);
+        }
+
+        
+        .title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .title h1 {
+            font-size: 48px;
+            margin: 0;
+            letter-spacing: 3px;
+            color: #111;
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.6);
+        }
+
+        .subtitle {
+            margin-top: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            letter-spacing: 2px;
+            color: #555;
+        }
+
+        
+        .main-content {
+            display: flex;
+            gap: 35px;
+            align-items: flex-start;
+        }
+
+        
+        .members {
+            width: 40%;
+            min-width: 350px;
+        }
+
+        .members h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #222;
+            padding-bottom: 8px;
+        }
+
+        .member-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .member {
+            background: rgba(255,255,255,0.65);
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .member:hover {
+            transform: translateX(5px);
+            background: white;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+        }
+
+        
+        .right-section {
+            flex: 1;
+            min-height: 300px;
+            position: relative;
+            padding: 20px;
+        }
+
+        
+        .goal-card {
+            position: relative;
+            z-index: 2;
+            max-width: 480px;
+            margin: 10px auto;
+            padding: 30px;
+            background: rgba(255,255,255,0.75);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .goal-card h2 {
+            margin-top: 0;
+            font-size: 30px;
+        }
+
+        .goal-card p {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.45;
+        }
+
+        .circle1 {
+            width: 120px;
+            height: 120px;
+            background: #ff8fab;
+            top: 0;
+            left: 5%;
+        }
+
+        .circle2 {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            top: 30px;
+            right: 5%;
+        }
+
+        .circle3 {
+            width: 150px;
+            height: 150px;
+            background: #f48fb1;
+            bottom: 0;
+            right: 10%;
+        }
+
+        .circle4 {
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            bottom: 40px;
+            left: 10%;
+        }
+
+        
+        .star {
+            position: absolute;
+            font-size: 35px;
+            color: white;
+            opacity: 0.8;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .star1 {
+            top: 15px;
+            right: 30%;
+        }
+
+        .star2 {
+            bottom: 20px;
+            left: 30%;
+            animation-delay: 1s;
+        }
+
+        .star3 {
+            top: 50%;
+            right: 3%;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        
+        .peta-section {
+            margin-top: 35px;
+        }
+
+        .peta-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .peta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        
+        .peta-button {
+            display: block;
+            width: 100%;
+            padding: 15px 10px;
+            border: none;
+            border-radius: 12px;
+            background: white;
+            color: #222;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+            transition: all 0.3s ease;
+            font-family: Arial, sans-serif;
+        }
+
+        .peta-button:hover {
+            transform: translateY(-5px);
+            background: #222;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #555;
+        }
+
+        
+        @media (max-width: 900px) {
+
+            .main-content {
+                flex-direction: column;
+            }
+
+            .members {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .right-section {
+                width: 100%;
+            }
+
+            .peta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .title h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .member-list {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 98%;
+                padding: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- TITLE -->
+    <div class="title">
+        <h1>GROUP 4</h1>
+        <div class="subtitle">INTERDISCIPLINARY PETA</div>
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- MEMBERS -->
+        <section class="members">
+
+            <h2>PEOPLE WHO MADE THE PROJECT POSSIBLE</h2>
+
+            <div class="member-list">
+
+                <div class="member">Shalanie Sarmiento</div>
+
+                <div class="member">Daizel Dungca</div>
+
+                <div class="member">Sheen Cunanan</div>
+
+                <div class="member">Ghio Gomez</div>
+
+                <div class="member">Carl Calara</div>
+
+                <div class="member">Shakira Sinio</div>
+
+                <div class="member">Yuan Acebedo</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT SIDE DESIGN -->
+        <section class="right-section">
+
+            <!-- Decorative shapes -->
+            <div class="circle circle1"></div>
+            <div class="circle circle2"></div>
+            <div class="circle circle3"></div>
+            <div class="circle circle4"></div>
+
+            <div class="star star1">✦</div>
+            <div class="star star2">✧</div>
+            <div class="star star3">✦</div>
+
+
+            <!-- Goal card -->
+            <div class="goal-card">
+
+                <h2>✨ Our Goal ✨</h2>
+
+                <p>
+                    Welcome to the Group 4's Interdisciplinary Website!
+                    Here, you will find all the Interconnected subjects and its contents!
+                    Our group's goal is to raise awareness about all the improper waste disposal around the whole world!
+                    Please enjoy!
+                </p>
+
+                <p>
+                    Explore each subject below to see our projects.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- PETA BUTTONS -->
+    <section class="peta-section">
+
+        <h2 class="peta-title">Our Interdisciplinary PETAs</h2>
+
+        <div class="peta-grid">
+
+            <a href="ENGLISH.html">
+                <button class="peta-button">
+                    English Interdisciplinary PETA
+                </button>
+            </a>
+
+            <a href="CL.html">
+                <button class="peta-button">
+                    Christian Values Education Interdisciplinary PETA
+                </button>
+            </a>
+
+            <a href="MAPEH.html">
+                <button class="peta-button">
+                    MAPEH Interdisciplinary PETA
+                </button>
+            </a>
+
+            <a href="AP.html">
+                <button class="peta-button">
+                    Araling Panlipunan Interdisciplinary PETA
+                </button>
+            </a>
+
+            <a href="SCIENCE.html">
+                <button class="peta-button">
+                    Science Interdisciplinary PETA
+                </button>
+            </a>
+
+            <a href="math.html">
+                <button class="peta-button">
+                    Math Interdisciplinary PETA
+                </button>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Thank you for scrolling with us, we hope we submitted to your expectations!
+    </footer>
+
+</div>
+
+</body>
+</html>
